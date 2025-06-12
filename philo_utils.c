@@ -6,7 +6,7 @@
 /*   By: liyu-her <liyu-her@student.42.kl>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 08:47:09 by liyu-her          #+#    #+#             */
-/*   Updated: 2025/06/12 19:48:13 by liyu-her         ###   ########.fr       */
+/*   Updated: 2025/06/13 00:10:35 by liyu-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int	timestamp(t_param *ptr)
 	int				res;
 
 	gettimeofday(&current, NULL);
-	res = ((current.tv_sec - ptr->start_time.tv_sec) * 1000) \
-		+ ((current.tv_usec - ptr->start_time.tv_usec) / 1000);
+	res = ((current.tv_sec - ptr->start_time.tv_sec) * 1000) + ((current.tv_usec
+				- ptr->start_time.tv_usec) / 1000);
 	return (res);
 }
 
