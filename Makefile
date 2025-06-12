@@ -1,33 +1,30 @@
+SRCS_NAME = philo \
+		ft_atoi \
+		philo_utils \
+		init operations \
+
+SRCS = $(SRCS_NAME:=.c)
+
+OBJECTS = $(SRCS:.c=.o)
+
 NAME = philo
 
-CC = gcc
-
-RM = rm -f
-
-SRC = philo.c \
-
-CFLAGS = -Wall -Werror -Wextra
-
-OPTION = -I ./
-
-OBJS = $(SRC:.c=.o)
+CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): $(OBJS) 
-	@$(CC) $(CFLAGS) $(OBJS) $(OPTION) -o $(NAME)
-	@echo "\033[92m--Philo Compiled--\033[0m"
-
 %.o: %.c
-	@$(CC) $(CFLAGS) $(OPTION) -c $< -o $@
+	$(CC) -c $(CFLAGS) $<	
+
+$(NAME): $(OBJECTS)
+	cc $(OBJECTS) -o $(NAME)
 
 clean:
-	@$(RM) $(OBJS)
+	rm -f $(OBJECTS)
 
-fclean: clean 
-	@$(RM) $(NAME)
-	@echo "\033[92m--Philo Cleaned--\033[0m"
+fclean: clean
+	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
